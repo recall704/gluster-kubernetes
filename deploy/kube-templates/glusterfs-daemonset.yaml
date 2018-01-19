@@ -18,6 +18,10 @@ spec:
     spec:
       nodeSelector:
         storagenode: glusterfs
+      tolerations:
+      - key: "node-role.kubernetes.io/master"
+        operator: "Exists"
+        effect: "NoSchedule"
       hostNetwork: true
       containers:
       - image: gluster/gluster-centos:latest
